@@ -24,4 +24,3 @@ public class SearchNode{
 		return "<"+_state+", "+ _pathCost+">";
 	}
 }
-
