@@ -10,8 +10,13 @@ import java.util.LinkedList;
  * so you should add some code to your SearchProgram to display the solution
  */
 public class StateSearcher {
-	private State _goalState;
+	private static State _goalState;
 	private LinkedList<SearchNode> _fringe;
+	
+	public static State getGoalState()
+	{
+		return _goalState;
+	}
 
 	public StateSearcher(State initial, State goal){
 		_fringe = new LinkedList<SearchNode>();

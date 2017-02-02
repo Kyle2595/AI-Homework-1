@@ -10,8 +10,7 @@ public class SearchProgramExample {
 	public static void main(String[] args) {
 		State initialState = null;
 		State goalState = null;
-		StateSearcher toSearch = 
-				new StateSearcher(initialState, goalState);
+		StateSearcher toSearch = new StateSearcher(initialState, goalState);
 		SearchNode answer = toSearch.findOneSolution();
 		System.out.println(answer);
 	}
