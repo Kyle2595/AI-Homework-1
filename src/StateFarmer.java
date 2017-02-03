@@ -2,8 +2,8 @@ import java.util.List;
 
 public class StateFarmer implements State {
 	
-	private String[] _bank1 = new String[3];
-	private String[] _bank2 = new String[3];
+	private static String[] _bank1 = new String[3];
+	private static String[] _bank2 = new String[3];
 	
 	public StateFarmer(String[] a, String[] b)
 	{
@@ -11,7 +11,7 @@ public class StateFarmer implements State {
 		setBank2(b);
 	}
 	
-	public String[] getBank1() 
+	public static String[] getBank1() 
 	{
 		return _bank1;
 	}
@@ -21,7 +21,7 @@ public class StateFarmer implements State {
 		this._bank1 = _bank1;
 	}
 
-	public String[] getBank2() 
+	public static String[] getBank2() 
 	{
 		return _bank2;
 	}
@@ -46,7 +46,10 @@ public class StateFarmer implements State {
 
 	@Override
 	public List<String> actions() {
-		// TODO Auto-generated method stub
+		actions().add("Move ALONE");
+		actions().add("Move CAT");
+		actions().add("Move DUCK");
+		actions().add("Move GRAIN");
 		return null;
 	}
 
