@@ -10,10 +10,11 @@ public class SearchProgram {
 	 */
 	public static void main(String[] args) 
 	{
-		farmer();
+		//farmerProblem();
+		waterProblem();
 	}
 
-	private static void farmer() 
+	private static void farmerProblem() 
 	{
 		String[] B1 = {"FARMER", "CAT", "DUCK", "GRAIN"};
 		String[] B2 = {null, null, null, null};
@@ -23,6 +24,12 @@ public class SearchProgram {
 		SearchNode answer = toSearch.findOneSolution();
 		System.out.println(answer);
 		System.out.println("Bank 1 = " + Arrays.toString(StateFarmer.getBank1()));
-		System.out.println("Bank 2 = " + Arrays.toString(StateFarmer.getBank2()));		
+		System.out.println("Bank 2 = " + Arrays.toString(StateFarmer.getBank2()));
 	}
+	
+	private static void waterProblem() 
+	{
+		
+	}
+
 }

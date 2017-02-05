@@ -21,7 +21,7 @@ public class SearchNode{
 		return _state;
 	}
 	
-	public SearchNode  getParent() 
+	public SearchNode getParent() 
 	{
 		return _parent;
 	}
