@@ -1,0 +1,15 @@
+Instructions:
+
+To run the code, look in the SearchProgram class.
+There, in the main method, you will find _method = "DFS".
+Change to "BFS" or "DFS" accordingly.
+
+You will also see a call to run different methods.
+farmerProblem();
+waterProblem();
+
+Comment out the one you don't want to run.
+
+The program will search through the states and print out the values of the solution.
+For the Farmer problem, it will print that all have made it across the river to the other bank.
+For the Water problem, it will show that the tub has reached k units of water.
