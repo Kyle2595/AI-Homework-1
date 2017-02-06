@@ -3,7 +3,7 @@
  * 
  */
 public class SearchNode{
-	private State _state;
+	private static State _state;
 	private SearchNode _parent;
 	private String _action; 
 	private Double _pathCost;
@@ -16,7 +16,7 @@ public class SearchNode{
 		_pathCost = pathCost;
 	}
 	
-	public State getState() 
+	public static State getState() 
 	{
 		return _state;
 	}

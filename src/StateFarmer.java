@@ -35,12 +35,15 @@ public class StateFarmer implements State {
 	@Override
 	public boolean equals(Object s)
 	{		
-		System.out.println("Bank 1 = " + Arrays.toString(StateFarmer.getBank1()));
-		System.out.println("Bank 2 = " + Arrays.toString(StateFarmer.getBank2()));
-		
-		if(this == s)
+		// For debugging
+//		System.out.println("Bank 1 = " + Arrays.toString(StateFarmer.getBank1()));
+//		System.out.println("Bank 2 = " + Arrays.toString(StateFarmer.getBank2()));
+//		System.out.println();
+
+		// Checks to see if the goalState (in this case s) is equal to the currentState
+		if(s instanceof StateFarmer)
 		{
-			return true;
+			return ((StateFarmer) s)._bank2.equals(this._bank2);
 		}
 		else
 		{
@@ -50,7 +53,8 @@ public class StateFarmer implements State {
 
 	@Override
 	public List<String> actions() {
-		List<String> actionList = Arrays.asList("Move ALONE",
+		List<String> actionList = Arrays.asList(
+				"Move ALONE",
 				"Move CAT",
 				"Move DUCK",
 				"Move GRAIN");
@@ -63,7 +67,7 @@ public class StateFarmer implements State {
 		String[] B1 = getBank1();
 		String[] B2 = getBank2();
 		StateFarmer nextState = new StateFarmer(B1, B2);
-		
+
 		if(action == "Move ALONE")
 		{
 			if(nextState._bank1[0] == "FARMER")
@@ -71,7 +75,7 @@ public class StateFarmer implements State {
 				nextState._bank1[0] = null;
 				nextState._bank2[0] = "FARMER";
 			}
-			
+
 			if(nextState._bank2[0] == "FARMER")
 			{
 				nextState._bank2[0] = null;
@@ -85,16 +89,16 @@ public class StateFarmer implements State {
 			{
 				nextState._bank1[1] = null;
 				nextState._bank2[1] = "CAT";
-				
+
 				nextState._bank1[0] = null;
 				nextState._bank2[0] = "FARMER";
 			}
-			
+
 			if(nextState._bank2[1] == "CAT")
 			{
 				nextState._bank2[1] = null;
 				nextState._bank1[1] = "CAT";
-				
+
 				nextState._bank2[0] = null;
 				nextState._bank1[0] = "FARMER";
 			}
@@ -106,16 +110,16 @@ public class StateFarmer implements State {
 			{
 				nextState._bank1[2] = null;
 				nextState._bank2[2] = "DUCK";
-				
+
 				nextState._bank1[0] = null;
 				nextState._bank2[0] = "FARMER";
 			}
-			
+
 			if(nextState._bank2[2] == "DUCK")
 			{
 				nextState._bank2[2] = null;
 				nextState._bank1[2] = "DUCK";
-				
+
 				nextState._bank2[0] = null;
 				nextState._bank1[0] = "FARMER";
 			}
@@ -127,16 +131,16 @@ public class StateFarmer implements State {
 			{
 				nextState._bank1[3] = null;
 				nextState._bank2[3] = "GRAIN";
-				
+
 				nextState._bank1[0] = null;
 				nextState._bank2[0] = "FARMER";
 			}
-			
+
 			if(nextState._bank2[3] == "GRAIN")
 			{
 				nextState._bank2[3] = null;
 				nextState._bank1[3] = "GRAIN";
-				
+
 				nextState._bank2[0] = null;
 				nextState._bank1[0] = "FARMER";
 			}

@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class StateSearcher {
 	private static State _goalState;
 	private LinkedList<SearchNode> _fringe;
-	
+
 	public static State getGoalState()
 	{
 		return _goalState;
@@ -29,39 +29,60 @@ public class StateSearcher {
 		State currentState;
 		State tempState;
 		// loop until find goal or run out of nodes to search from
-		while (true) { 
+		while (true) 
+		{ 
 			if (_fringe.isEmpty())
 				return null;
-			else {
+			else 
+			{
 				toExpand = _fringe.remove(); 
 				currentState = toExpand.getState();
 				if (isGoal(toExpand))
 					return toExpand;
-				else {
-					for (String s: toExpand.getState().actions()) {
+				else 
+				{
+					for (String s: toExpand.getState().actions()) 
+					{
 						tempState = currentState.successor(s);
 						if (! inPath(tempState,toExpand))
-							_fringe.addFirst(new SearchNode(tempState,
-									toExpand,
-									s,
-									currentState.stepCost(s)+toExpand.getPathCost())); 
+						{
+							if(SearchProgram._method == "DFS")
+							{
+								_fringe.addFirst(new SearchNode(tempState,
+										toExpand,
+										s,
+										currentState.stepCost(s)+toExpand.getPathCost())); 
+							}
+							else if(SearchProgram._method == "BFS")
+							{
+								_fringe.addLast(new SearchNode(tempState,
+										toExpand,
+										s,
+										currentState.stepCost(s)+toExpand.getPathCost())); 
+							}
+							else
+							{
+								System.out.println("Enter a proper method");
+							}
+
+						}
 					}
 				}
 			}
 		}
 	}
 
-	private boolean isGoal(SearchNode node) {
+	private boolean isGoal(SearchNode node) 
+	{
 		return node.getState().equals(_goalState);
 	}
 
-	private boolean inPath(State s, SearchNode node) {
+	private boolean inPath(State s, SearchNode node) 
+	{
 		boolean retVal = s.equals(node.getState());
 		if (retVal || node.getParent()==null)
 			return retVal;
 		else 
 			return inPath(s, node.getParent());
 	}
-
 }
-
