@@ -10,8 +10,8 @@ public class SearchProgram {
 	 */
 	public static void main(String[] args) 
 	{
-		//farmerProblem();
-		waterProblem();
+		farmerProblem();
+		//waterProblem();
 	}
 
 	private static void farmerProblem() 

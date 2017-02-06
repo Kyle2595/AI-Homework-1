@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class StateFarmer implements State {
@@ -33,8 +34,11 @@ public class StateFarmer implements State {
 
 	@Override
 	public boolean equals(Object s)
-	{
-		if(s instanceof StateFarmer)
+	{		
+		System.out.println("Bank 1 = " + Arrays.toString(StateFarmer.getBank1()));
+		System.out.println("Bank 2 = " + Arrays.toString(StateFarmer.getBank2()));
+		
+		if(this == s)
 		{
 			return true;
 		}
@@ -46,11 +50,11 @@ public class StateFarmer implements State {
 
 	@Override
 	public List<String> actions() {
-		actions().add("Move ALONE");
-		actions().add("Move CAT");
-		actions().add("Move DUCK");
-		actions().add("Move GRAIN");
-		return null;
+		List<String> actionList = Arrays.asList("Move ALONE",
+				"Move CAT",
+				"Move DUCK",
+				"Move GRAIN");
+		return actionList;
 	}
 
 	@Override
@@ -143,13 +147,13 @@ public class StateFarmer implements State {
 	@Override
 	public Double stepCost(String action) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0.0;
 	}
 
 	@Override
 	public Double estimatedDistance(State s) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0.0;
 	}
 
 }
